@@ -2,7 +2,7 @@ vim.api.nvim_create_autocmd('PackChanged', {
   callback = function(ev)
     local name, kind, path = ev.data.spec.name, ev.data.kind, ev.data.path
 
-    -- [[ L3MON4D3/LuaSnip ]]
+    -- [[ https://github.com/L3MON4D3/LuaSnip ]]
     if name == 'LuaSnip' and (kind == 'install' or kind == 'update') then
       -- Not supported in Windows & requires make
       if vim.fn.has('win32') ~= 1 and vim.fn.executable('make') == 1 then
@@ -11,7 +11,7 @@ vim.api.nvim_create_autocmd('PackChanged', {
       end
     end
 
-    -- [[ nvim-telescope/telescope-fzf-native.nvim ]]
+    -- [[ https://github.com/nvim-telescope/telescope-fzf-native.nvim ]]
     if name == 'telescope-fzf-native.nvim' and (kind == 'install' or kind == 'update') then
       if vim.fn.executable('make') == 0 and vim.fn.executable('cmake') == 1 then
         vim.system({
@@ -31,6 +31,11 @@ vim.api.nvim_create_autocmd('PackChanged', {
       elseif vim.fn.executable('make') == 1 then
         vim.system({ 'make' }, { cwd = path })
       end
+    end
+
+    -- [[ https://github.com/nvim-treesitter/nvim-treesitter ]]
+    if name == 'nvim-treesitter' and (kind == 'install' or kind == 'update') then
+      vim.cmd(':TSUpdate')
     end
   end,
 })
