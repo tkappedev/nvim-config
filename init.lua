@@ -1,8 +1,8 @@
 -- Enable improved vim loader (experimental)
 vim.loader.enable()
 
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 -- Used by some plugins to determine of Nerd Font is installed
 vim.g.have_nerd_font = true
@@ -12,7 +12,7 @@ vim.o.number = true
 vim.o.relativenumber = true
 
 -- Enable mouse mode
-vim.o.mouse = "a"
+vim.o.mouse = 'a'
 
 -- Don't show the mode, since it's already in the status line
 vim.o.showmode = false
@@ -20,9 +20,13 @@ vim.o.showmode = false
 -- Enable break indent
 vim.o.breakindent = true
 
+-- Enable auto- & smartindent
+vim.o.autoindent = true
+vim.o.smartindent = true
+
 -- Sync clipboard between OS and Neovim.
 vim.schedule(function()
-	vim.o.clipboard = "unnamedplus"
+  vim.o.clipboard = 'unnamedplus'
 end)
 
 -- Save undo history
@@ -33,7 +37,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Keep signcolumn on
-vim.o.signcolumn = "yes"
+vim.o.signcolumn = 'yes'
 
 -- Decrease update time
 vim.o.updatetime = 250
@@ -47,7 +51,7 @@ vim.o.splitbelow = true
 
 -- Configure how whitespace is displayed
 vim.o.list = true
-vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣", precedes = "◀", extends = "▶" }
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣', precedes = '◀', extends = '▶' }
 
 -- Expand tabs as spaces
 vim.opt.expandtab = true
@@ -55,7 +59,7 @@ vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 
 -- Preview substitutions live
-vim.o.inccommand = "split"
+vim.o.inccommand = 'split'
 
 -- Show which line cursor is on
 vim.o.cursorline = true
@@ -72,34 +76,34 @@ vim.o.winblend = 15
 vim.o.pumblend = 15
 
 -- Clear highlights on search when pressing <Esc> in normal mode
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostics to quickfix list
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 -- Exit terminal mode with 2x ESC
-vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- Bind j/k to gj/gk when no count was specified (better movement on wrapped lines)
 local g_with_key = function(key)
-	local gkey = "g" .. key
-	return function()
-		if vim.v.count == 0 then
-			return gkey
-		else
-			return key
-		end
-	end
+  local gkey = 'g' .. key
+  return function()
+    if vim.v.count == 0 then
+      return gkey
+    else
+      return key
+    end
+  end
 end
-vim.keymap.set({ "n", "v" }, "j", g_with_key("j"), { expr = true })
-vim.keymap.set({ "n", "v" }, "k", g_with_key("k"), { expr = true })
+vim.keymap.set({ 'n', 'v' }, 'j', g_with_key('j'), { expr = true })
+vim.keymap.set({ 'n', 'v' }, 'k', g_with_key('k'), { expr = true })
 
 -- Remap q to Q and Q to <M-q>, to prevent accidental triggering of macro mode
-vim.keymap.set("n", "q", "<nop>", { noremap = true })
-vim.keymap.set("n", "Q", "q", { noremap = true, desc = "Record macro" })
-vim.keymap.set("n", "<M-q>", "Q", { noremap = true, desc = "Replay last register" })
+vim.keymap.set('n', 'q', '<nop>', { noremap = true })
+vim.keymap.set('n', 'Q', 'q', { noremap = true, desc = 'Record macro' })
+vim.keymap.set('n', '<M-q>', 'Q', { noremap = true, desc = 'Replay last register' })
 
 -- [[ Autocmds ]]
-require("autocmds.highlight-yank")
-require("autocmds.restore-cursor")
-require("autocmds.shada-cleanup")
+require('autocmds.highlight-yank')
+require('autocmds.restore-cursor')
+require('autocmds.shada-cleanup')
