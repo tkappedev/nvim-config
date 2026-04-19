@@ -74,6 +74,7 @@ vim.o.confirm = true
 vim.o.termguicolors = true
 vim.o.winblend = 15
 vim.o.pumblend = 15
+vim.o.cmdheight = 0
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
