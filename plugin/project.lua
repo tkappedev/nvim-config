@@ -13,6 +13,33 @@ require('project').setup({
       'helm_ls',
     },
   },
+  telescope = {
+    disable_file_picker = false,
+    mappings = {
+      n = {
+        r = 'rename_project',
+        b = 'browse_project_files',
+        d = 'delete_project',
+        f = 'find_project_files',
+        ['.'] = 'recent_project_files',
+        s = 'search_in_project_files',
+        w = 'change_working_directory',
+      },
+      i = {
+        ['<C-b>'] = 'browse_project_files',
+        ['<C-d>'] = 'delete_project',
+        ['<C-f>'] = 'find_project_files',
+        ['<C-n>'] = '',
+        ['<C-r>'] = 'rename_project',
+        ['<C-.>'] = 'recent_project_files',
+        ['<C-s>'] = 'search_in_project_files',
+        ['<C-w>'] = 'change_working_directory',
+      },
+    },
+    prefer_file_browser = false,
+    sort = 'newest', ---@type 'oldest'|'newest'
+    tilde = true,
+  },
 })
 
 pcall(require('telescope').load_extension, 'projects')
