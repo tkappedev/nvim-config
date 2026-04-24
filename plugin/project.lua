@@ -14,7 +14,7 @@ require('project').setup({
     },
   },
   telescope = {
-    disable_file_picker = false,
+    disable_file_picker = true,
     mappings = {
       n = {
         r = 'rename_project',
