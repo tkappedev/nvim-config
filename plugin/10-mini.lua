@@ -14,3 +14,11 @@ require('mini.surround').setup({
     replace = 'gsr',
   },
 })
+
+local files = require('mini.files')
+files.setup()
+
+vim.keymap.set('n', '\\', files.open, {
+  desc = 'Files reveal',
+  silent = true,
+})
