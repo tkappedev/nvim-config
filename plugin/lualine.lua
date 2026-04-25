@@ -26,7 +26,7 @@ local easy_dotnet = {
 
 require('lualine').setup({
   options = { theme = theme },
-  extensions = { 'neo-tree', 'toggleterm', 'nvim-dap-ui', easy_dotnet },
+  extensions = { 'toggleterm', 'nvim-dap-ui', easy_dotnet },
   sections = {
     lualine_a = { 'mode' },
     lualine_x = { 'encoding', 'fileformat', 'filetype' },
