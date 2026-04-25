@@ -108,3 +108,6 @@ vim.keymap.set('n', '<M-q>', 'Q', { noremap = true, desc = 'Replay last register
 require('autocmds.highlight-yank')
 require('autocmds.restore-cursor')
 require('autocmds.shada-cleanup')
+
+-- [[ User-commands ]]
+require('user-commands.vimpack_shortcuts')
