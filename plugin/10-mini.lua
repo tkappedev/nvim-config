@@ -71,6 +71,15 @@ vim.api.nvim_create_autocmd('User', {
   end,
 })
 
+vim.api.nvim_create_autocmd('User', {
+  pattern = 'TelescopeFindPre',
+  callback = function()
+    if _G.MiniFiles then
+      _G.MiniFiles.close()
+    end
+  end,
+})
+
 -- https://github.com/nvim-mini/mini.nvim/discussions/2173#discussioncomment-15272407
 -- Window width based on the offset from the center, i.e. center window
 -- is 60, then next over is 20, then the rest are 10.
