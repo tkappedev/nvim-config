@@ -15,8 +15,19 @@ require('mini.surround').setup({
   },
 })
 
-local MiniFiles = require('mini.files')
-MiniFiles.setup()
+require('mini.tabline').setup()
+
+require('mini.bufremove').setup()
+
+vim.keymap.set('n', '<C-w>b', function()
+  MiniBufremove.delete(0, false)
+end, { desc = 'Delete buffer' })
+
+vim.keymap.set('n', '<C-w>B', function()
+  MiniBufremove.wipeout(0, false)
+end, { desc = 'Wipeout buffer' })
+
+require('mini.files').setup()
 
 vim.keymap.set('n', '\\', function()
   if not MiniFiles.close() then
@@ -74,8 +85,8 @@ vim.api.nvim_create_autocmd('User', {
 vim.api.nvim_create_autocmd('User', {
   pattern = 'TelescopeFindPre',
   callback = function()
-    if _G.MiniFiles then
-      _G.MiniFiles.close()
+    if MiniFiles then
+      MiniFiles.close()
     end
   end,
 })

@@ -104,6 +104,9 @@ vim.keymap.set('n', 'q', '<nop>', { noremap = true })
 vim.keymap.set('n', 'Q', 'q', { noremap = true, desc = 'Record macro' })
 vim.keymap.set('n', '<M-q>', 'Q', { noremap = true, desc = 'Replay last register' })
 
+vim.keymap.set('n', '<C-n>', '<cmd>bnext<CR>', { desc = 'Next buffer' })
+vim.keymap.set('n', '<C-p>', '<cmd>bprevious<CR>', { desc = 'Previous buffer' })
+
 -- [[ Autocmds ]]
 require('autocmds.highlight-yank')
 require('autocmds.restore-cursor')
